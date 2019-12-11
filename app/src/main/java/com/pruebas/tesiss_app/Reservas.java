@@ -13,7 +13,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 public class Reservas extends AppCompatActivity {
-    private ImageView imagen;
+    private ImageView imagen,pagar;
     private TextView nombre,precio,pago,nombredelpago;
     ImageView mapa;
     Dialog mydialog;
@@ -27,6 +27,7 @@ public class Reservas extends AppCompatActivity {
         String peluqueriaPrecio=getIntent().getExtras().getString("precio");
         int imagenurl=getIntent().getExtras().getInt("ImgUrl");
         pago=findViewById(R.id.pagotratmiento);
+        pagar=findViewById(R.id.tipodepago_id);
         nombredelpago=findViewById(R.id.nombrepago);
         mapa = findViewById(R.id.ubicaciones_id);
         mapa.setOnClickListener(new View.OnClickListener() {
@@ -46,28 +47,13 @@ public class Reservas extends AppCompatActivity {
         pago.setText(precio.getText());
        nombredelpago.setText(nombre.getText());
 
-
-    }
-    public void tipopago(View view){
-        TextView pagotarjeta,pagoefectivo;
-        mydialog.setContentView(R.layout.dialogalert);
-        pagoefectivo=(TextView) mydialog.findViewById(R.id.textView11);
-        pagotarjeta=(TextView) mydialog.findViewById(R.id.textView12);
-
-        pagoefectivo.setOnClickListener(new View.OnClickListener() {
+        pagar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mydialog.dismiss();
+                Intent inten=new Intent(Reservas.this,Tarjeta.class);
+                startActivity(inten);
             }
         });
-        pagotarjeta.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(getApplicationContext(),Tarjeta.class);
-                startActivity(intent);
-                mydialog.dismiss();
-            }
-        });
-        mydialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
     }
+
 }

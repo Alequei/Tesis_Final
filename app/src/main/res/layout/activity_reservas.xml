@@ -275,7 +275,6 @@
         android:src="@drawable/ic_ubicacion" />
 
     <ImageView
-        android:onClick="tipopago"
         android:id="@+id/tipodepago_id"
         android:layout_width="40dp"
         android:layout_height="40dp"

@@ -13,11 +13,11 @@ public class Tarjeta extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tarjeta);
+        aceptar =findViewById(R.id.button2);
         aceptar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(Tarjeta.this,Reservas.class);
-                startActivity(intent);
+                onBackPressed();
             }
         });
 
